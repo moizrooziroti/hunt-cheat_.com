@@ -61,7 +61,7 @@ const published = parseBlogDate(post.date);
 ---
 
 <BaseLayout
-  title={pageTitle(post.title)}
+  title={post.metaTitle ?? pageTitle(post.title)}
   description={post.desc}
   ogType="article"
   ogImage={post.image}

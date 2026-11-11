@@ -4,10 +4,11 @@ import { huntMediaImage } from '../../config/siteMedia';
 const rawBlogPosts: BlogPostFull[] = [
   {
     tag: "Buying Guides",
-    title: "Best Hunt Showdown Cheat for PC — Buyer's Guide (2026)",
+    title: "Showdown Cheat for PC — buyer's guide (2026)",
+    metaTitle: "Showdown Cheat – PC software buyer's guide",
     slug: "best-hunt-showdown-cheat",
     image: "/images/blog/hunt-showdown-buying-guide.png",
-    desc: "How to compare Hunt Showdown cheat listings, what PC software usually includes, and when to open checkout.",
+    desc: "Showdown Cheat: how to compare PC software listings, what modules usually include, when to open checkout, and which guides to read before you pay.",
     date: "Jan 12, 2026",
     readTime: "9 min read",
     featured: true,
@@ -25,10 +26,11 @@ const rawBlogPosts: BlogPostFull[] = [
   },
   {
     tag: "Features",
-    title: "Hunt Showdown ESP Guide — Player, Boss, and Loot Overlays",
+    title: "Hunt Showdown ESP — player, boss, and loot overlays",
+    metaTitle: "Hunt Showdown ESP — readable bayou overlays",
     slug: "hunt-showdown-esp-guide",
     image: "/images/blog/hunt-showdown-buying-guide.png",
-    desc: "What Hunt Showdown ESP modules show on bayou maps, and how to keep overlays readable in fights.",
+    desc: "Hunt Showdown ESP: what overlay modules show on bayou maps, distance caps, and how to keep player, boss, and loot markers readable during fights.",
     date: "Dec 28, 2025",
     readTime: "11 min read",
     body: [
@@ -40,15 +42,16 @@ const rawBlogPosts: BlogPostFull[] = [
       { type: 'p', text: "Player boxes, distance, health, off-screen arrows, boss markers, and trap ESP each solve a different problem. Pair with [wallhack and radar](/blogs/hunt-showdown-wallhack-radar/) if you want geometry emphasis." },
       { type: 'h2', text: "Bayou readability" },
       { type: 'p', text: "Cap distance on swamp maps, mute duplicate colors, and keep Dark Sight moments in mind — overlays should not cover the reticle." },
-      { type: 'cta', title: "Get Hunt Showdown software", text: "Checkout is one click away when features match your goals.", href: "/go/hunt-showdown/" },
+      { type: 'cta', title: "Get overlay software", text: "Checkout is one click away when features match your goals.", href: "/go/hunt-showdown/" },
     ],
   },
   {
     tag: "Features",
-    title: "Hunt Showdown Aimbot Guide — FOV, Smoothing, and Ballistics",
+    title: "Showdown Aimbot cheat guide — FOV and smoothing",
+    metaTitle: "Showdown Aimbot – aim assist for Hunt weapons",
     slug: "hunt-showdown-aimbot-guide",
     image: "/images/blog/hunt-showdown-buying-guide.png",
-    desc: "Aim assist terminology for Hunt weapon drop, smoothing basics, and conservative first settings.",
+    desc: "Showdown Aimbot: aim assist terminology for Hunt weapon drop, smoothing basics, conservative FOV defaults, and when aim modules are worth enabling.",
     date: "Dec 20, 2025",
     readTime: "10 min read",
     body: [

@@ -1,3 +1,5 @@
+import { navLinkIsActive } from '../utils/path';
+
 function initFonts() {
   const root = document.documentElement;
 
@@ -14,27 +16,21 @@ function initFonts() {
   document.fonts.ready.then(markReady).catch(markReady);
 }
 
-function initNavHighlight() {
-  const path = window.location.pathname.replace(/\/index\.html$/, '').replace(/\/$/, '') || '/';
+function applyNavHighlight() {
+  const path = window.location.pathname;
 
   document.querySelectorAll<HTMLAnchorElement>('[data-nav-link]').forEach((link) => {
     const href = link.getAttribute('href') ?? '';
-    const linkPath = href.replace(/\/index\.html$/, '').replace(/\/$/, '') || '/';
-    let isActive = false;
-
-    if (linkPath === '/') {
-      isActive = path === '/';
-    } else {
-      isActive = path === linkPath || path.startsWith(`${linkPath}/`);
-    }
-
+    const isActive = navLinkIsActive(path, href);
     link.classList.toggle('is-active', isActive);
-    if (isActive) {
-      link.setAttribute('aria-current', 'page');
-    } else {
-      link.removeAttribute('aria-current');
-    }
+    if (isActive) link.setAttribute('aria-current', 'page');
+    else link.removeAttribute('aria-current');
   });
+}
+
+function initNavHighlight() {
+  applyNavHighlight();
+  document.addEventListener('astro:page-load', applyNavHighlight);
 }
 
 function initInPageScroll() {

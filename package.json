@@ -15,7 +15,6 @@
     "local": "npm run build && npm run start",
     "astro": "astro",
     "optimize:images": "node scripts/optimize-images.mjs",
-    "build:workers": "node scripts/build-workers.mjs",
     "check:leftovers": "node scripts/check-leftovers.mjs"
   },
   "dependencies": {

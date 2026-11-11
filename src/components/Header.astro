@@ -14,6 +14,9 @@ import Icon from './icons/Icon.astro';
 import SlideRevealButton from './SlideRevealButton.astro';
 
 import type { IconName } from './icons/types';
+import { navLinkIsActive } from '../utils/path';
+
+const currentPath = Astro.url.pathname;
 
 const navIcons: Record<string, IconName> = {
   Products: 'navProducts',
@@ -36,17 +39,24 @@ const purchaseUrl = checkoutPath('huntShowdown');
     </a>
 
     <nav class="absolute left-1/2 hidden -translate-x-1/2 items-center gap-6 lg:flex" aria-label="Primary">
-      {t.nav.map((link) => (
+      {t.nav.map((link) => {
+        const active = navLinkIsActive(currentPath, link.href);
+        return (
         <a
           href={link.href}
-          class="nav-link inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+          class:list={[
+            'nav-link inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-sm font-medium text-muted-foreground transition-colors hover:text-primary',
+            active && 'is-active',
+          ]}
           data-nav-link
+          aria-current={active ? 'page' : undefined}
           {...(link.scrollTarget ? { 'data-scroll-target': link.scrollTarget } : {})}
         >
           <Icon name={navIcons[link.label] ?? 'navFeatures'} size={16} />
           {link.label}
         </a>
-      ))}
+        );
+      })}
     </nav>
 
     <div class="flex items-center gap-2">
@@ -72,17 +82,24 @@ const purchaseUrl = checkoutPath('huntShowdown');
             <SheetTitle>{t.site.name}</SheetTitle>
           </SheetHeader>
           <nav class="flex flex-col gap-1" aria-label="Mobile">
-            {t.nav.map((link) => (
+            {t.nav.map((link) => {
+              const active = navLinkIsActive(currentPath, link.href);
+              return (
               <a
                 href={link.href}
-                class="nav-link flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-primary"
+                class:list={[
+                  'nav-link flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-primary',
+                  active && 'is-active',
+                ]}
                 data-nav-link
+                aria-current={active ? 'page' : undefined}
                 {...(link.scrollTarget ? { 'data-scroll-target': link.scrollTarget } : {})}
               >
                 <Icon name={navIcons[link.label] ?? 'navFeatures'} size={16} />
                 {link.label}
               </a>
-            ))}
+              );
+            })}
           </nav>
           <Button as="a" href={purchaseUrl} variant="primary" class="w-full justify-center" aria-label={t.ui.checkoutAria}>
             {t.ui.browseCheatsMobile}

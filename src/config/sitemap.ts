@@ -61,6 +61,7 @@ export function sitemapSerialize(item: SitemapItem): SitemapItem | undefined {
 
   if (
     path === '/about/' ||
+    path === '/affiliate-disclosure/' ||
     path === '/support/' ||
     path === '/privacy/' ||
     path === '/terms/' ||

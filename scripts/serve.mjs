@@ -6,7 +6,6 @@ import { resolvePathRedirect } from './redirects.mjs';
 import { resolveCheckoutPathRedirect } from '../src/config/checkout-redirects.mjs';
 
 const CANONICAL_HOST = 'hunt-cheat.com';
-const PREVIEW_SUFFIXES = ['.workers.dev', '.pages.dev'];
 const distDir = path.resolve('dist');
 const port = Number(process.env.PORT) || 3000;
 
@@ -135,11 +134,6 @@ function pickEncoding(acceptEncoding = '') {
   return null;
 }
 
-function isPreviewHost(req) {
-  const host = getRequestHost(req);
-  return PREVIEW_SUFFIXES.some((suffix) => host.endsWith(suffix));
-}
-
 function sendFile(req, res, filePath, statusCode = 200) {
   const ext = path.extname(filePath).toLowerCase();
   const headers = {
@@ -147,11 +141,6 @@ function sendFile(req, res, filePath, statusCode = 200) {
     'Cache-Control': getCacheControl(filePath),
     Vary: 'Accept-Encoding',
   };
-
-  if (ext === '.html' && isPreviewHost(req)) {
-    headers['X-Robots-Tag'] = 'noindex, nofollow';
-    headers['Cache-Control'] = 'no-store';
-  }
 
   const encoding =
     COMPRESSIBLE.has(ext) && !res.getHeader?.('Content-Encoding')

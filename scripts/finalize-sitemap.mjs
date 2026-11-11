@@ -35,7 +35,19 @@ function formatUrlset(xml) {
     .replace(/<\/priority>/g, '</priority>\n');
 }
 
-const formatted = formatUrlset(raw);
+let formatted = formatUrlset(raw);
+if (!formatted.includes('xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"')) {
+  formatted = formatted.replace(
+    /<urlset([^>]*)>/,
+    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"$1>',
+  );
+}
+
+if (!formatted.includes('https://hunt-cheat.com/')) {
+  console.error('finalize-sitemap: sitemap must only list https://hunt-cheat.com URLs.');
+  process.exit(1);
+}
+
 fs.writeFileSync(path.join(dist, 'sitemap.xml'), formatted, 'utf8');
 
 const indexXml = `<?xml version="1.0" encoding="UTF-8"?>

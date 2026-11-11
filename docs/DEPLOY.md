@@ -1,32 +1,36 @@
-# Deploy hunt-cheat.com (Cloudflare Workers)
+# Deploy hunt-cheat.com
 
-**Canonical origin:** `https://hunt-cheat.com`
+**Canonical origin:** `https://hunt-cheat.com` only (no preview/staging hostnames in sitemap, canonical, or robots).
 
 ## Build
 
 ```bash
-npm run build:workers
+npm ci
+npm run build
 ```
 
-Sets `PUBLIC_CANONICAL_ORIGIN=https://hunt-cheat.com` for sitemap and Vite.
-
-## Deploy (when authorized)
+Optional checks:
 
 ```bash
-npx wrangler deploy
+npm run check:leftovers
+npm run check:qa
 ```
 
-Attach custom domain **hunt-cheat.com** in Cloudflare Dashboard → Workers → `hunt-cheat-com` → Domains & Routes.
+## Run locally (production static)
 
-## Preview hosts
+```bash
+npm run local
+```
 
-`*.workers.dev` and `*.pages.dev` should return `X-Robots-Tag: noindex, nofollow` via:
+Open `http://127.0.0.1:3000/` — `scripts/serve.mjs` serves `dist/`, handles `/go/*` checkout redirects, and legacy path redirects from `scripts/redirects.mjs`.
 
-- `src/middleware.ts` (dev/preview with Astro)
-- `scripts/serve.mjs` when serving `dist/` locally with a preview hostname
+## Production
 
-Production **hunt-cheat.com** remains indexable.
+Upload the **`dist/`** folder to your host for **hunt-cheat.com**, or run `npm run start` behind your reverse proxy (see `nixpacks.toml`).
 
-## DNS note
+Ensure the edge/server also forwards:
 
-If the apex returns HTTP 500 but a Worker preview works, the domain may still point at an old host — update DNS to the Cloudflare Worker route.
+- `/go/*` → MOIZ checkout URLs (same map as `src/config/checkout-redirects.mjs`)
+- Legacy paths in `scripts/redirects.mjs` (`/blog/` → `/blogs/`, etc.)
+
+All public URLs in HTML, `sitemap.xml`, and `robots.txt` must use `https://hunt-cheat.com`.

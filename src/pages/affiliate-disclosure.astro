@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { t } from '../i18n';
+import { resolvePageSeo } from '../config/seo';
+import LegalPage from '../components/LegalPage.astro';
+import { breadcrumbSchema, webPageSchema } from '../utils/schema';
+
+const content = t.legalPages.affiliateDisclosure;
+const seo = resolvePageSeo('/affiliate-disclosure/');
+---
+
+<BaseLayout
+  title={seo.title}
+  description={seo.description}
+  jsonLd={[
+    webPageSchema({
+      name: content.title,
+      description: content.description,
+      url: '/affiliate-disclosure/',
+    }),
+    breadcrumbSchema([
+      { name: 'Home', path: '/' },
+      { name: 'Affiliate Disclosure', path: '/affiliate-disclosure/' },
+    ]),
+  ]}
+>
+  <LegalPage
+    title={content.title}
+    description={content.description}
+    breadcrumbLabel="Affiliate Disclosure"
+    sections={content.sections}
+  />
+</BaseLayout>

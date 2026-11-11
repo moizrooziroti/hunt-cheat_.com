@@ -31,11 +31,10 @@
 - **Structured data:** Organization, WebSite (+ SearchAction on `/blogs/?q=`), Product, Article, FAQ where applicable.
 - **Docs:** `docs/keyword-map.md`, `docs/blog-research.md`.
 
-## D. Cloudflare
+## D. Hosting
 
-- **wrangler.toml:** `hunt-cheat-com`, assets from `dist/`.
-- **Preview noindex:** middleware + `serve.mjs` for `workers.dev` / `pages.dev`.
-- **Live production:** **UNVERIFIED** (apex returned 500 during planning; no deploy run).
+- **Canonical host only:** `https://hunt-cheat.com` (see `docs/DEPLOY.md`, `scripts/serve.mjs`).
+- **Live production:** deploy `dist/` to your hunt-cheat.com origin (not verified from this repo).
 
 ## E. QA checklist (release)
 
@@ -59,6 +58,5 @@
 
 ## G. Remaining blockers
 
-- Live DNS / Cloudflare attach for hunt-cheat.com
-- Deploy authorization (`wrangler deploy`)
+- Live DNS / origin attach for hunt-cheat.com
 - Genuine customer reviews (optional future data)

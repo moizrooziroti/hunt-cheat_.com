@@ -19,9 +19,9 @@ export const PAGE_SEO: Record<string, PageSeoEntry> = {
       'Hunt Showdown cheat software plus UGC tools, HWID spoofer, skin changer, and Cloud DMA — feature lists and checkout links at hunt-cheat.com.',
   },
   '/blogs/': {
-    title: 'Hunt Showdown Cheat Blogs & Buying Guides',
+    title: 'Guides – Hunt ESP, aimbot, DMA & safety blogs',
     description:
-      'Hunt: Showdown ESP, aimbot, DMA, HWID, and safety guides with filters and search — hunt-cheat.com blogs.',
+      'Guides on Hunt: Showdown ESP, aimbot, DMA, HWID, and safety — filter and search the hunt-cheat.com blog archive for buying and setup tips.',
   },
   '/reviews/': {
     title: 'Hunt Showdown Cheat Reviews',
@@ -29,14 +29,14 @@ export const PAGE_SEO: Record<string, PageSeoEntry> = {
       'Published buyer notes for Hunt Showdown cheat products when available — no fabricated ratings.',
   },
   '/forum/': {
-    title: 'Hunt Showdown Forum | Illustrative Discussions',
+    title: 'Forum – read-only Hunt Showdown cheat discussions',
     description:
-      'Read-only example threads about Hunt Showdown cheat features, setup, EAC, and add-on products.',
+      'Forum: read-only example threads on Hunt Showdown cheat features, setup, EAC, and add-on products — illustrative Q&A linked from our guides.',
   },
   '/faq/': {
-    title: 'FAQ | Hunt Showdown Cheat Products & Setup',
+    title: 'Cheats FAQ – Hunt products, checkout & setup',
     description:
-      'Answers on ESP, aimbot, checkout, HWID spoofer, Cloud DMA, and blog guides at hunt-cheat.com.',
+      'Cheats FAQ: ESP, aimbot, MOIZ checkout, HWID spoofer, Cloud DMA, and blog guides — straight answers before you buy Hunt Showdown software.',
   },
   '/terms/': {
     title: 'Terms & Conditions | Hunt Showdown Cheat',
@@ -48,9 +48,14 @@ export const PAGE_SEO: Record<string, PageSeoEntry> = {
       'How hunt-cheat.com uses analytics, cookies, and contact data when you browse or request support.',
   },
   '/about/': {
-    title: 'About Hunt Showdown Cheat',
+    title: 'Hunt Showdown – About hunt-cheat.com & buyers',
     description:
-      'What hunt-cheat.com publishes: product pages, guides, forum examples, and status notes for Hunt: Showdown buyers.',
+      'What hunt-cheat.com publishes for Hunt Showdown buyers: product pages, guides, forum examples, and status notes — independent, not the game publisher.',
+  },
+  '/affiliate-disclosure/': {
+    title: 'Affiliate Disclosure | hunt-cheat.com',
+    description:
+      'How sponsored Buy links on hunt-cheat.com work, who handles checkout, and when we may earn an affiliate commission on qualifying purchases.',
   },
   '/support/': {
     title: 'Support | Hunt Showdown Cheat',

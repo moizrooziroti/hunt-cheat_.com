@@ -70,3 +70,16 @@ export function cheatPath(slug: string): string {
 export function productPath(slug: string): string {
   return `${PRODUCT_BASE}${slug}/`;
 }
+
+/** Normalize URL path for nav “current page” checks (trailing slash stripped; root is `/`). */
+export function normalizePathname(pathname: string): string {
+  return pathname.replace(/\/index\.html$/i, '').replace(/\/$/, '') || '/';
+}
+
+/** True when `pathname` is the nav link target or a child route (e.g. `/blogs/foo/` → Blogs). */
+export function navLinkIsActive(pathname: string, href: string): boolean {
+  const path = normalizePathname(pathname);
+  const linkPath = normalizePathname((href.split('#')[0] ?? href).trim());
+  if (linkPath === '/') return path === '/';
+  return path === linkPath || path.startsWith(`${linkPath}/`);
+}

@@ -9,5 +9,7 @@ export type BlogBlock =
 export interface BlogPostFull extends BlogPost {
   featured?: boolean;
   author?: string;
+  /** Full document title when `pageTitle()` suffix would be too long. */
+  metaTitle?: string;
   body: BlogBlock[];
 }

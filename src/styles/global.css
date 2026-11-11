@@ -245,13 +245,17 @@ html.dark #why-us .why-compare-other-card :hover .icon-app {
   top: 1rem;
 }
 
-/* Navbar (desktop + mobile sheet): primary on hover only — not when .is-active */
+/* Navbar: clear “you are here” state (SSR + site.ts keep in sync) */
 a.nav-link[data-nav-link].is-active {
-  color: var(--muted-foreground);
+  color: var(--primary);
+  font-weight: 600;
+  background: color-mix(in oklch, var(--primary) 14%, transparent);
+  box-shadow: inset 0 0 0 1px color-mix(in oklch, var(--primary) 35%, transparent);
 }
 
 a.nav-link[data-nav-link].is-active:hover {
   color: var(--primary);
+  background: color-mix(in oklch, var(--primary) 20%, transparent);
 }
 
 a.nav-link[data-nav-link] .icon-app {
