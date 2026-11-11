@@ -27,6 +27,19 @@ const navIcons: Record<string, IconName> = {
 };
 
 const purchaseUrl = checkoutPath('huntShowdown');
+
+/** Active nav must use utilities — Tailwind `text-muted-foreground` beats global `.is-active` alone. */
+const navDesktopBase =
+  'nav-link inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-sm font-medium transition-colors';
+const navDesktopIdle = 'text-muted-foreground hover:text-primary';
+const navDesktopActive =
+  'is-active text-primary font-semibold bg-primary/15 shadow-[inset_0_0_0_1px] shadow-primary/35 hover:text-primary hover:bg-primary/20';
+
+const navMobileBase =
+  'nav-link flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition-colors';
+const navMobileIdle = 'text-muted-foreground hover:bg-muted hover:text-primary';
+const navMobileActive =
+  'is-active text-primary font-semibold bg-primary/15 shadow-[inset_0_0_0_1px] shadow-primary/35 hover:bg-primary/20 hover:text-primary';
 ---
 
 <header class="pointer-events-none fixed inset-x-0 top-0 z-50">
@@ -44,10 +57,7 @@ const purchaseUrl = checkoutPath('huntShowdown');
         return (
         <a
           href={link.href}
-          class:list={[
-            'nav-link inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 text-sm font-medium text-muted-foreground transition-colors hover:text-primary',
-            active && 'is-active',
-          ]}
+          class:list={[navDesktopBase, active ? navDesktopActive : navDesktopIdle]}
           data-nav-link
           aria-current={active ? 'page' : undefined}
           {...(link.scrollTarget ? { 'data-scroll-target': link.scrollTarget } : {})}
@@ -87,10 +97,7 @@ const purchaseUrl = checkoutPath('huntShowdown');
               return (
               <a
                 href={link.href}
-                class:list={[
-                  'nav-link flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-primary',
-                  active && 'is-active',
-                ]}
+                class:list={[navMobileBase, active ? navMobileActive : navMobileIdle]}
                 data-nav-link
                 aria-current={active ? 'page' : undefined}
                 {...(link.scrollTarget ? { 'data-scroll-target': link.scrollTarget } : {})}

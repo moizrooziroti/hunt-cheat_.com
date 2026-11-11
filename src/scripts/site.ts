@@ -31,6 +31,8 @@ function applyNavHighlight() {
 function initNavHighlight() {
   applyNavHighlight();
   document.addEventListener('astro:page-load', applyNavHighlight);
+  window.addEventListener('pageshow', applyNavHighlight);
+  window.addEventListener('popstate', applyNavHighlight);
 }
 
 function initInPageScroll() {
