@@ -9,6 +9,15 @@ npm ci
 npm run build
 ```
 
+**Cloudflare Workers** (connected repo) uses:
+
+```bash
+npm ci
+npm run build:workers
+```
+
+That sets `PUBLIC_CANONICAL_ORIGIN=https://hunt-cheat.com`, runs the normal build, and leaves `dist/` for `wrangler deploy` (`wrangler.toml`).
+
 Optional checks:
 
 ```bash
