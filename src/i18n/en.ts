@@ -154,7 +154,7 @@ export const en: Translations = {
       },
       {
         title: 'Blogs + forums',
-        desc: 'Fifteen Hunt Showdown guides plus forum threads that point back to one of the four products.',
+        desc: 'Sixteen Hunt Showdown guides plus forum threads that point back to one of the five products.',
       },
       {
         title: 'Honest limitations',
@@ -413,7 +413,7 @@ export const en: Translations = {
     eyebrow: 'Help',
     title: 'Support & resources',
     subtitle:
-      'Orders are finished on the partner checkout. hunt-cheat.com support only covers this website: the four product pages, blogs, and forums.',
+      'Orders are finished on the partner checkout. hunt-cheat.com support only covers this website: the product pages, blogs, and forums.',
     channels: [
       {
         icon: 'navProducts',
@@ -446,7 +446,7 @@ export const en: Translations = {
     ],
     ticketTitle: 'If you email support',
     ticketItems: [
-      { title: 'Offer name', desc: 'Which of the four products (hacks, spoofer, skin changer, DMA).' },
+      { title: 'Offer name', desc: 'Which product (Hunt cheat, UGC tools, spoofer, skin changer, or Cloud DMA).' },
       { title: 'What you already tried', desc: 'Article or forum links you followed.' },
       { title: 'No payment disputes here', desc: 'We do not process cards — use checkout support for billing.' },
     ],
@@ -459,7 +459,7 @@ export const en: Translations = {
     items: [
       { num: '01', q: 'Are Buy links affiliate?', a: 'Yes — sponsored outbound links; see Affiliate Disclosure.' },
       { num: '02', q: 'Do you claim tools are undetected?', a: 'No. We avoid stealth and bypass language entirely.' },
-      { num: '03', q: 'Where are the four products?', a: '/products/ lists hacks, spoofer, Skin changer, and Cloud DMA.' },
+      { num: '03', q: 'Where are the products?', a: '/products/ lists Hunt cheat, UGC tools, HWID spoofer, skin changer, and Cloud DMA.' },
     ],
   },
   reviews: {

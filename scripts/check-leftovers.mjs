@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 const ROOT = process.cwd();
-const SCAN_DIRS = ['src', 'public', 'scripts', 'dist'];
+const SCAN_DIRS = ['src', 'data', 'public', 'scripts', 'dist'];
 const TEXT_EXT = new Set(['.ts', '.tsx', '.astro', '.mjs', '.js', '.json', '.css', '.html', '.xml', '.txt', '.md']);
 
 const BANNED = [
@@ -52,10 +52,35 @@ function walk(dir, files = []) {
 }
 
 const hits = [];
+
+const rogueIndex = path.join(ROOT, 'index.html');
+if (fs.existsSync(rogueIndex)) {
+  hits.push({
+    file: 'index.html',
+    rule: 'remove repo-root index.html (Astro output lives in dist/ only)',
+  });
+}
+
+const PLACEHOLDER_RX = [
+  /\blorem ipsum\b/i,
+  /\bTODO:\s*write\b/i,
+  /\bplaceholder copy\b/i,
+  /will render here when published/i,
+];
+
 for (const dir of SCAN_DIRS) {
   for (const file of walk(path.join(ROOT, dir))) {
     if (ALLOWED.some((rx) => rx.test(file))) continue;
     const content = fs.readFileSync(path.join(ROOT, file), 'utf8');
+    const topDir = file.split(/[/\\]/)[0];
+    if (topDir === 'src' || topDir === 'data') {
+      for (const rx of PLACEHOLDER_RX) {
+        if (rx.test(content)) {
+          hits.push({ file, rule: `placeholder: ${rx.source}` });
+          break;
+        }
+      }
+    }
     for (const rx of BANNED) {
       if (rx.test(content)) {
         hits.push({ file, rule: rx.source });

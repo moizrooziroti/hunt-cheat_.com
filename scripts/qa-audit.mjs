@@ -39,6 +39,20 @@ function auditPage(file) {
   if (h1s.length === 0) issues.push('no H1');
   if (h1s.length > 1) issues.push(`${h1s.length} H1 tags`);
 
+  if (!/<meta\s+name=["']viewport["']/i.test(html)) {
+    issues.push('missing viewport meta (mobile)');
+  }
+
+  const canonical =
+    html.match(/<link\s+rel=["']canonical["']\s+href=["']([^"']+)["']/i)?.[1]?.trim() ?? '';
+  if (!canonical.startsWith('https://hunt-cheat.com/')) {
+    issues.push(`canonical must be https://hunt-cheat.com (got ${canonical || 'none'})`);
+  }
+
+  const bodyText = stripTags(html);
+  if (/\blorem ipsum\b/i.test(bodyText)) issues.push('placeholder: lorem ipsum');
+  if (/will render here when published/i.test(bodyText)) issues.push('placeholder: unfinished reviews UI');
+
   const imgs = [...html.matchAll(/<img\b[^>]*>/gi)].map((m) => m[0]);
   for (const tag of imgs) {
     const hasAlt = /\balt\s*=/i.test(tag);

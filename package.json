@@ -16,7 +16,8 @@
     "astro": "astro",
     "optimize:images": "node scripts/optimize-images.mjs",
     "build:workers": "node scripts/build-workers.mjs",
-    "check:leftovers": "node scripts/check-leftovers.mjs"
+    "check:leftovers": "node scripts/check-leftovers.mjs",
+    "check:release": "npm run build && npm run check:qa && npm run check:leftovers"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",

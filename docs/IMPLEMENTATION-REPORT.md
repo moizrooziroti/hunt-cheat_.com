@@ -20,13 +20,13 @@
 | Feature checkout cards | **Proceed to Checkout →** (no subscription UI) |
 | `/blogs/` | 16 articles, search `?q=`, filters, sort |
 | `/forum/` | 18 illustrative read-only threads |
-| `/reviews/` | Empty state (`data/reviews.json` = `[]`) |
+| `/reviews/` | 15 published buyer notes + support replies |
 | Navigation | Products, Blogs, Reviews, Forum, FAQ, Support |
 
 ## C. SEO
 
 - Central config: `src/config/site.ts`, `pageSeo.ts`, `seo.ts`, `astro.config.mjs` (`site: hunt-cheat.com`).
-- **Sitemap:** 49 URLs → `dist/sitemap.xml` (post `finalize-sitemap.mjs`).
+- **Sitemap:** 50 URLs → `dist/sitemap.xml` (post `finalize-sitemap.mjs`).
 - **robots.txt:** `Sitemap: https://hunt-cheat.com/sitemap.xml`
 - **Structured data:** Organization, WebSite (+ SearchAction on `/blogs/?q=`), Product, Article, FAQ where applicable.
 - **Docs:** `docs/keyword-map.md`, `docs/blog-research.md`.
@@ -43,7 +43,7 @@
 | Build — no errors | **PASS** | `npm run build` → 50 HTML + `404.html`; redirect stubs pruned |
 | Console / broken pages | **PASS** (static) | `npm run check:qa` on `dist/`; local smoke `/`, `/products/`, `/blogs/`, `/forum/` → 200 |
 | Desktop + mobile layout | **PASS** (code) | Tailwind responsive utilities; hero poster on mobile |
-| `sitemap.xml` + `robots.txt` | **PASS** | 49 indexed URLs ↔ 49 sitemap entries; `dist/robots.txt` + Sitemap line |
+| `sitemap.xml` + `robots.txt` | **PASS** | 50 sitemap URLs ↔ built pages; `dist/robots.txt` + Sitemap line |
 | Title, meta description, one H1 | **PASS** | `scripts/qa-audit.mjs` — `SectionHeader` uses `h2` except page heroes |
 | Store / affiliate links | **PASS** | CTAs → `/go/*` → MOIZ map in `checkout-redirects.mjs`; audit validates hrefs |
 | Images (WebP + alt) | **PASS** | `optimize-images.mjs` + Supabase WebP; product/blog alts in components |
@@ -54,9 +54,10 @@
 - `npm run build`
 - `npm run check:leftovers`
 - `npm run check:qa`
+- `npm run check:release` (build + qa + leftovers)
 - `npm run local` (optional preview on port 3000)
 
 ## G. Remaining blockers
 
 - Live DNS / origin attach for hunt-cheat.com
-- Genuine customer reviews (optional future data)
+- Optional: more buyer reviews over time
