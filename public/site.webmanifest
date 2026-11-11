@@ -1,0 +1,23 @@
+{
+  "name": "Hunt Showdown Cheat",
+  "short_name": "hunt showdown cheat",
+  "description": "Hunt Showdown cheat software for PC — ESP, aimbot, and add-on products.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0a0d10",
+  "theme_color": "#7f3dee",
+  "lang": "en-US",
+  "icons": [
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    }
+  ]
+}
