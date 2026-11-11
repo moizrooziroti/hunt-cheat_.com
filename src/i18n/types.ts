@@ -231,6 +231,7 @@ export interface Translations {
     subtitle: string;
     emptyTitle: string;
     emptyBody: string;
+    permissionNote: string;
   };
   footer: {
     tagline: string;

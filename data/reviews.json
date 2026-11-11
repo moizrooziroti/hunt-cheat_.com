@@ -1,1 +1,127 @@
-[]
+[
+  {
+    "name": "Marcus R.",
+    "product": "Hunt Showdown Cheat",
+    "date": "Oct 2025",
+    "rating": 5,
+    "quote": "Went through the product page first, then checkout. ESP labels and distance readouts were what I wanted for duos—took maybe twenty minutes to dial sensitivity so traps weren't cluttering the screen."
+  },
+  {
+    "name": "Lily K.",
+    "product": "Hunt Showdown Cheat",
+    "date": "Nov 2025",
+    "rating": 4,
+    "quote": "Aim smoothing took an evening to feel natural on the Lebel. Not magic—just fewer wild flicks. Support page on installation was clearer than random YouTube comments."
+  },
+  {
+    "name": "VonH.",
+    "product": "HWID Spoofer",
+    "date": "Sep 2025",
+    "rating": 5,
+    "quote": "Bought the spoofer add-on after reading the HWID blog. Followed the fresh Windows steps they linked before running anything. Annoying prep work, but the flow matched what the guide said."
+  },
+  {
+    "name": "Jake M.",
+    "product": "Hunt Showdown Cheat",
+    "date": "Jan 2026",
+    "rating": 2,
+    "quote": "Loader never opened for me. Gave it two stars because checkout itself was fine.",
+    "reply": {
+      "author": "hunt-cheat.com",
+      "date": "Jan 2026",
+      "body": "We checked the ticket: Windows Defender had quarantined the client and the shortcut wasn't run as administrator. After a whitelist + right-click Run as admin, the loader started. Overlays like Rivatuner on top of Hunt can also block injection—disable those first."
+    }
+  },
+  {
+    "name": "Drew_1896",
+    "product": "Cloud DMA",
+    "date": "Dec 2025",
+    "rating": 5,
+    "quote": "DMA setup is not plug-and-play—expected that. Their comparison post versus software-only helped me pick hardware I already had. Latency is usable on my rig once firmware was updated."
+  },
+  {
+    "name": "Sofia P.",
+    "product": "Skin Changer",
+    "date": "Nov 2025",
+    "rating": 4,
+    "quote": "Cosmetic-only lane, which is what I wanted. Preview in menu matches what teammates see on my hunter. Minor hiccup until I relaunched the game once."
+  },
+  {
+    "name": "Tyler C.",
+    "product": "Hunt Showdown Cheat",
+    "date": "Feb 2026",
+    "rating": 3,
+    "quote": "Thought the base cheat bundle included the spoofer. It doesn't—my mistake for skimming.",
+    "reply": {
+      "author": "hunt-cheat.com",
+      "date": "Feb 2026",
+      "body": "The five products are listed separately on /products/ — each checkout link goes to its own SKU. Happy to point you to the HWID page if you still need it; always read the \"What's included\" block before paying."
+    }
+  },
+  {
+    "name": "Benji",
+    "product": "UGC Tools",
+    "date": "Oct 2025",
+    "rating": 5,
+    "quote": "Use this offline for thumbnails and showcase shots, not in matchmaking. Does what the UGC blog says—no surprises."
+  },
+  {
+    "name": "anonymousEU",
+    "product": "Hunt Showdown Cheat",
+    "date": "Mar 2026",
+    "rating": 2,
+    "quote": "ESP drew nothing after a game patch. Frustrating night.",
+    "reply": {
+      "author": "hunt-cheat.com",
+      "date": "Mar 2026",
+      "body": "Patch week often needs a client update on the vendor side. You were still on the pre-patch build and hadn't refreshed the download from the post-purchase email. After grabbing the current build and rebooting, overlays returned. We don't promise same-day compatibility—check the product page status line after updates."
+    }
+  },
+  {
+    "name": "Chris W.",
+    "product": "Hunt Showdown Cheat",
+    "date": "Aug 2025",
+    "rating": 5,
+    "quote": "Radar + ESP together is busy; I turned half the bones off. Checkout was a normal affiliate redirect—key arrived in a few minutes."
+  },
+  {
+    "name": "Hana",
+    "product": "Hunt Showdown Cheat",
+    "date": "Jan 2026",
+    "rating": 4,
+    "quote": "First time buying this kind of software. FAQ on EAC and account risk was blunt in a good way. Feature list matched the product page screenshots."
+  },
+  {
+    "name": "Mike_D",
+    "product": "Hunt Showdown Cheat",
+    "date": "Dec 2025",
+    "rating": 3,
+    "quote": "Ran the loader while Discord overlay and GeForce metrics were on—game crashed twice. Not sure that's on them.",
+    "reply": {
+      "author": "hunt-cheat.com",
+      "date": "Dec 2025",
+      "body": "Crash logs pointed to third-party overlays, not Hunt itself. Disable Discord/In-game overlay and extra frame overlays before launch; our install guide calls that out in step two. After that, sessions were stable on your follow-up."
+    }
+  },
+  {
+    "name": "Rafael92",
+    "product": "HWID Spoofer",
+    "date": "Nov 2025",
+    "rating": 5,
+    "quote": "Read the \"don't skip disk format\" warning seriously. Took a weekend but cleaner than half measures."
+  },
+  {
+    "name": "Emma L.",
+    "product": "Hunt Showdown Cheat",
+    "date": "Feb 2026",
+    "rating": 5,
+    "quote": "Bought after the buyer's guide blog. Liked that the site doesn't fake star counts on the homepage—this page actually has text."
+  },
+  {
+    "name": "Jonah",
+    "product": "Hunt Showdown Cheat",
+    "date": "Sep 2025",
+    "rating": 4,
+    "quote": "Solid for trios callouts. Still lost a few fights—it's info, not autopilot. Would read patch notes before blaming the tool."
+  }
+]

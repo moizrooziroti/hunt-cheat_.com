@@ -466,10 +466,12 @@ export const en: Translations = {
     eyebrow: 'Reader notes',
     title: 'Checkout experiences',
     subtitle:
-      'Buyer notes show up here only when we have permission to publish them. Until then, the four product pages are the place to buy.',
+      'Short buyer notes shared with permission—lightly edited for spelling only. Star ratings reflect their checkout and setup experience, not guaranteed in-game outcomes.',
     emptyTitle: 'No published reviews yet',
     emptyBody:
       'hunt-cheat.com does not invent star ratings. Open a product and use Buy when you are ready to check out.',
+    permissionNote:
+      'Responses from hunt-cheat.com are informational—always follow the product page and vendor instructions.',
   },
   footer: {
     tagline: 'Hunt: Showdown hacks — ESP, aim assist, wallhack-style, HWID, skin changer, DMA. Affiliate links.',

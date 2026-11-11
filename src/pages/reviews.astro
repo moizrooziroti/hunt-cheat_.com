@@ -16,6 +16,11 @@ const breadcrumbs = [
   { name: 'Home', path: '/' },
   { name: 'Reviews', path: '/reviews/' },
 ];
+
+function starRow(rating: number) {
+  const full = Math.max(1, Math.min(5, Math.round(rating)));
+  return { full, empty: 5 - full };
+}
 ---
 
 <BaseLayout
@@ -61,7 +66,72 @@ const breadcrumbs = [
             </CardContent>
           </Card>
         ) : (
-          <p class="mt-10 text-center text-muted-foreground">Reviews will render here when published.</p>
+          <>
+            <p class="mt-8 text-center text-xs text-muted-foreground">{t.reviews.permissionNote}</p>
+
+            <ul class="mt-10 grid list-none gap-5 p-0 md:grid-cols-2" aria-label="Published buyer notes">
+              {reviews.map((review) => {
+                const stars = starRow(review.rating);
+                return (
+                  <li>
+                    <Card class="h-full border-border/80 shadow-xs">
+                      <CardContent class="flex h-full flex-col gap-4 py-6">
+                        <div class="flex flex-wrap items-start justify-between gap-3">
+                          <div>
+                            <p class="font-semibold text-foreground">{review.name}</p>
+                            <p class="mt-0.5 text-xs text-muted-foreground">
+                              {review.product ? `${review.product} · ` : ''}
+                              {review.date}
+                            </p>
+                          </div>
+                          <div
+                            class="inline-flex items-center gap-0.5 text-sm"
+                            role="img"
+                            aria-label={`${review.rating} out of 5 stars`}
+                          >
+                            {Array.from({ length: stars.full }).map(() => (
+                              <span class="text-primary" aria-hidden="true">
+                                ★
+                              </span>
+                            ))}
+                            {Array.from({ length: stars.empty }).map(() => (
+                              <span class="text-muted-foreground/40" aria-hidden="true">
+                                ★
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+
+                        <blockquote class="border-none text-sm leading-relaxed text-foreground">
+                          <p>&ldquo;{review.quote}&rdquo;</p>
+                        </blockquote>
+
+                        {review.reply && (
+                          <div class="mt-auto rounded-lg border border-border/80 bg-muted/40 px-4 py-3">
+                            <p class="text-xs font-medium text-primary">
+                              {review.reply.author}
+                              {review.reply.date ? ` · ${review.reply.date}` : ''}
+                            </p>
+                            <p class="mt-2 text-sm leading-relaxed text-muted-foreground">{review.reply.body}</p>
+                          </div>
+                        )}
+                      </CardContent>
+                    </Card>
+                  </li>
+                );
+              })}
+            </ul>
+
+            <div class="mt-12 flex flex-wrap justify-center gap-3">
+              <Button as="a" href={ROUTES.products} variant="primary">
+                View products
+                <Icon name="arrowRight" size={16} />
+              </Button>
+              <Button as="a" href="/support/" variant="outline">
+                Support
+              </Button>
+            </div>
+          </>
         )
       }
     </div>
